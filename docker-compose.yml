@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  healthtech-dashboard:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: healthtech_patient_dashboard
+    ports:
+      - "8080:5000"
+    volumes:
+      - ./server/healthtech.db:/app/server/healthtech.db
+    restart: always
+    environment:
+      - NODE_ENV=production
+      - PORT=5000
